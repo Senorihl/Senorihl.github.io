@@ -1,10 +1,22 @@
 <div class="height-full text-left {% if site.style == 'dark' %}box-shadow{% else %}border border-gray-light{% endif %} bg-white rounded-1 p-3">
   <div class="d-flex flex-justify-between flex-items-start mb-1">
-    <h1 class="f4 lh-condensed mb-1">
+    <h2 class="f4 lh-condensed mb-1">
       <a href="{{ site.baseurl }}{{ post.url }}">
         {{ post.title }}
       </a>
-    </h1>
+    </h2>
   </div>
-  <div class="text-gray mb-2 ws-normal">{{ post.date | date: "%b %d, %Y"}}</div>
+  {% if post.subtitle %}
+    <h3 class="text-gray f5 lh-condensed mb-1">
+      {{ post.subtitle }}
+    </h3>
+    {% endif %}
+  <div class="text-gray mb-2 ws-normal">Posted on {{ post.date | date: site.date_format }}</div>
+  <div class="post-entry">
+    {{ post.excerpt | strip_html | xml_escape | truncatewords: site.excerpt_length }}
+    {% assign excerpt_word_count = post.excerpt | number_of_words %}
+    {% if post.content != post.excerpt or excerpt_word_count > site.excerpt_length %}
+      <a href="{{ post.url | relative_url }}" class="post-read-more">[Read&nbsp;More]</a>
+    {% endif %}
+  </div>
 </div>

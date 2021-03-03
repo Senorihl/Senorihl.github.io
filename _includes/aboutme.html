@@ -1,0 +1,48 @@
+<p>I'm a developer <i>(Really ?!)</i> loving to learn new things and acquired new skills.</p>
+<p>I usually work with PHP and Symfony but some times with some Javascript and related frameworks.</p>
+<p>In addition I try to learn DevOps shits such as web server administration and setup <i>(I like to handle my own crappy projects)</i>.</p>
+<p>Not inclined to unicorns stuff I'd rather look at the starts and hope that we will be up there in some short time.</p>
+
+<p><b>Enjoy coding, enjoy debugging, enjoy discovering !</b></p>
+
+<br />
+
+<h2>Experiences and formations</h2>
+
+{% for experience in site.data.experiences %}
+
+<div class="TimelineItem">
+  <div class="TimelineItem-badge">
+    {% if experience.formation %}
+    {% octicon mortar-board height:16 %}
+    {% else %}
+    {% octicon briefcase height:16 %}
+    {% endif %}
+  </div>
+
+  <div class="TimelineItem-body">
+    <b>{{ experience.title }}</b> at {{ experience.company }}<br />
+    <small>{{ experience.location }} — {{ experience.duration }}</small>
+  </div>
+</div>
+
+{% for role in experience.roles %}
+<div class="TimelineItem TimelineItem--condensed">
+  <div class="TimelineItem-badge">
+    {% octicon dot-fill height:16 fill-rule:evenodd %}
+  </div>
+  <div class="TimelineItem-body">{{ role }}</div>
+</div>
+{% endfor %}
+
+{% assign technologies = experience.technologies | join: ', ' %}
+{% unless technologies == "" %}
+<div class="TimelineItem TimelineItem--condensed">
+  <div class="TimelineItem-badge">
+    {% octicon code height:16 fill-rule:evenodd %}
+  </div>
+  <div class="TimelineItem-body">Technologies and tools: {{ technologies }}</div>
+</div>
+{% endunless %}
+
+{% endfor %}

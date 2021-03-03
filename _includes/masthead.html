@@ -10,6 +10,15 @@
   {{ user.bio }}
 </p>
 
+<div class="f4 mb-6">
+    <div class="{{ metadata_styles }}">
+        <a href="{{ '/aboutme' | relative_url }}" {% if site.style == 'dark' %}class="text-white"{% endif %}>About me</a>
+    </div>
+    <div class="{{ metadata_styles }}">
+        <a href="{{ '/projects' | relative_url }}" {% if site.style == 'dark' %}class="text-white"{% endif %}>Projects</a>
+    </div>
+</div>
+
 {% if include.metadata %}
   <div class="f4 mb-6">
     {% if user.name %}
@@ -46,9 +55,6 @@
           </div>
         {% endfor %}
       </div>
-    {% endif %}
-    {% if user.hireable %}
-      <span title="Hire me" class="d-inline-block f5 rounded-2 text-white bg-green py-1 px-2">Available for hire</span>
     {% endif %}
   </div>
 {% endif %}

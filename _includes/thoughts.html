@@ -1,9 +1,25 @@
-<h2 {% if site.style == 'dark' %}class="text-white"{% endif %}>My Thoughts</h2>
-<p class="f4 mb-4 {% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %}">Articles I've written.</p>
 <div class="d-sm-flex flex-wrap gutter-condensed mb-4">
-  {% for post in site.posts limit: 6 %}
+  {% for post in paginator.posts %}
     <div class="col-sm-6 col-md-12 col-lg-6 col-xl-4 mb-3">
       {% include post-card.html %}
     </div>
   {% endfor %}
 </div>
+
+
+{% if paginator.total_pages > 1 %}
+<nav class="paginate-container" aria-label="Pagination">
+  <div class="pagination">
+    {% if paginator.previous_page %}
+      <a class="previous_page" rel="previous" href="{{ paginator.previous_page_path | relative_url }}" aria-label="Newer Posts">Newer Posts</a>
+    {% else %}
+      <span class="previous_page" aria-disabled="true">Newer Posts</span>
+    {% endif %}
+    {% if paginator.next_page %}
+      <a class="next_page" rel="next" href="{{ paginator.next_page_path | relative_url }}" aria-label="Older Posts">Older Posts</a>
+    {% else %}
+      <span class="next_page" aria-disabled="true">Older Posts</span>
+    {% endif %}
+  </div>
+</nav>
+{% endif %}
