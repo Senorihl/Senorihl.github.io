@@ -11,6 +11,10 @@ plugins:
   - jemoji
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-minifier
+
+jekyll-minifier:
+  exclude: 'feed.xml'
 
 projects:
   sort_by: pushed
