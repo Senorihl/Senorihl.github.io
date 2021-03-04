@@ -3,6 +3,7 @@ style: light
 
 url: "https://senorihl.github.io"
 baseurl: ""
+google_tracking_id: UA-70834668-4
 
 plugins:
   - jekyll-octicons
