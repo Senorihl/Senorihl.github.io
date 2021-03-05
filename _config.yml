@@ -14,7 +14,7 @@ plugins:
   - jekyll-minifier
 
 jekyll-minifier:
-  exclude: 'feed.xml'
+  exclude: "feed.xml"
 
 projects:
   sort_by: pushed
@@ -62,5 +62,6 @@ permalink: /:year/:month/:slug/
 paginate: 6
 excerpt_length: 50
 date_format: "%B %-d, %Y"
-title: Senorihl — A developer tale
-description: GitHub Page — Developer and Software Craftman
+title: Senorihl
+description: Developer and Software Craftman
+title-separator: —
