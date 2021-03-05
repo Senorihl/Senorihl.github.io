@@ -50,34 +50,95 @@
 {% endcapture %}
 
 <div class="d-md-flex min-height-full {% unless site.style == 'dark' %}border-md-bottom{% endunless %}">
-<div class="flex-self-stretch {% if site.style == 'dark' %}bg-gray-dark{% else %}border-md-right border-gray-light bg-white{% endif %} col-md-5 col-lg-4 col-xl-3 px-4 px-md-6 px-lg-7 py-6">
-    {% include masthead.html metadata=true %}
-</div>
+    <div class="flex-self-stretch {% if site.style == 'dark' %}bg-gray-dark{% else %}border-md-right border-gray-light bg-white{% endif %} col-md-5 col-lg-4 col-xl-3 px-4 px-md-6 px-lg-7 py-6">
+        {% include masthead.html metadata=true %}
+    </div>
 
-<div class="col-md-7 col-lg-8 col-xl-9 px-4 py-6 px-lg-7 border-top border-md-top-0 bg-gray-light" {% if site.style == 'dark' %}style="background-color: #2f363d !important"{% endif %} id="{{ 'post-content'  | slugify }}">
-    <div class="mx-auto" style="max-width: 900px;">
-    <div class="f4 {% if site.style == 'dark' %}text-white{% endif %} mb-6">
-        <div class="f4 {% if site.style == 'dark' %}text-white{% endif %}">
-        <p class="f5"><a href="{{ site.url }}{{ site.baseurl | append:'/' }}" class="d-flex flex-items-center {% if site.style == 'dark' %}text-white{% endif %}">{% octicon chevron-left height:16 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:Home %}Home</a></p>
-        <h1 class="f00-light lh-condensed">{{ page.title }}</h1>
-        {% unless page.subtitle == "" %}
-        <h2 class="lh-condensed mb-2">{{ page.subtitle }}</h1>
-        {% endunless %}
-        <p class="{% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %} {% unless page.tags.size > 0 %}mb-5{% endunless %}">Published {{ page.date | date: "%b %d, %Y"}}</p>
-        {% if page.tags.size > 0 %}
-        <p class="{% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %} mb-5">
-            <span>Tags:</span>
-            {% for tag in page.tags %}
-                <a class="Label" href="{{ '/tags' | relative_url }}#{{- tag | slugify -}}">{% octicon tag height:14 %}&nbsp;{{- tag -}}</a>
-            {% endfor %}
-        </p>
-        {% endif %}
+    <div class="col-md-7 col-lg-8 col-xl-9 px-4 py-6 px-lg-7 border-top border-md-top-0 bg-gray-light" {% if site.style == 'dark' %}style="background-color: #2f363d !important"{% endif %} id="{{ 'post-content'  | slugify }}">
+        <div class="mx-auto" style="max-width: 900px;">
+            <div class="f4 {% if site.style == 'dark' %}text-white{% endif %} mb-6">
+                <div class="f4 {% if site.style == 'dark' %}text-white{% endif %}">
+                <p class="f5"><a href="{{ site.url }}{{ site.baseurl | append:'/' }}" class="d-flex flex-items-center {% if site.style == 'dark' %}text-white{% endif %}">{% octicon chevron-left height:16 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:Home %}Home</a></p>
+                <h1 class="f00-light lh-condensed">{{ page.title }}</h1>
+                {% unless page.subtitle == "" %}
+                <h2 class="lh-condensed mb-2">{{ page.subtitle }}</h1>
+                {% endunless %}
+                <p class="{% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %}">Published {{ page.date | date: "%b %d, %Y"}}</p>
+                <p class="{% unless page.tags.size > 0 %}mb-5{% endunless %}"><img src="https://visitor-badge.laobi.icu/badge?page_id=senorihl.blog.{{ page.title | slugify }}" alt="visitor badge"/></p>
+                {% if page.tags.size > 0 %}
+                <p class="{% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %} {% unless page.gh-repo != '' %}mb-5{% endunless %}">
+                    <span>Tags:</span>
+                    {% for tag in page.tags %}
+                        <a class="Label" href="{{ '/tags' | relative_url }}#{{- tag | slugify -}}">{% octicon tag height:14 %}&nbsp;{{- tag -}}</a>
+                    {% endfor %}
+                </p>
+                {% endif %}
 
-        {{ post_body }}
+                {% if page.gh-repo %}
+                <div class="Box mb-5">
+                    <div class="Box-body">
+                {% assign parts = page.gh-repo | split: '/' %}
+                {% assign gh_user = parts[0] %}
+                {% assign gh_repo = parts[1] %}
+                <div class="pagehead repohead ">
+                    <div class="container-lg repohead-details-container clearfix">
+                      <p class="h4">
+                        {% octicon repo height:20 %}
+                        <span class="author"><a href="https://github.com/{{ parts[0] }}" target="_blank" class="url fn" rel="author">{{ parts[0] }}</a></span>
+                        <span class="path-divider">/</span>
+                        <strong><a href="https://github.com/{{ parts[0] }}/{{ parts[1] }}" target="_blank">{{ parts[1] }}</a></strong>
+                      </p>
+                      {% if page.gh-badge.size > 0 %}
+                      <div>                        
+                            {% for badge in page.gh-badge %}
+                              {% case badge %}
+                                {% when 'star'%}
+                                    <div class="mr-2">
+                                        <a class="btn btn-sm btn-with-count" href="https://github.com/{{ gh_user }}/{{ gh_repo }}" role="button">
+                                            {% octicon star height:16 %}
+                                            <span>Star</span>
+                                        </a>
+                                        <a class="social-count mr-2" href="https://github.com/{{ gh_user }}/{{ gh_repo }}" data-gh-user="{{ gh_user }}" data-gh-repo="{{ gh_repo }}" data-gh="stargazers_count">0</a>
+                                    </div>
+                                {% when 'watch'%}
+                                    <div class="mr-2">
+                                        <a class="btn btn-sm btn-with-count" href="https://github.com/{{ gh_user }}/{{ gh_repo }}" role="button">
+                                            {% octicon eye height:16 %}
+                                            <span>Watch</span>
+                                        </a>
+                                        <a class="social-count mr-2" href="https://github.com/{{ gh_user }}/{{ gh_repo }}" href="#url" data-gh-user="{{ gh_user }}" data-gh-repo="{{ gh_repo }}" data-gh="watchers_count">0</a>
+                                    </div>
+                                {% when 'fork'%}
+                                    <div class="mr-2">
+                                        <a class="btn btn-sm btn-with-count" href="https://github.com/{{ gh_user }}/{{ gh_repo }}/fork" role="button">
+                                            {% octicon repo-forked height:16 %}
+                                            <span>Fork</span>
+                                        </a>
+                                        <a class="social-count mr-2" href="https://github.com/{{ gh_user }}/{{ gh_repo }}/fork" data-gh-user="{{ gh_user }}" data-gh-repo="{{ gh_repo }}" data-gh="forks_count">0</a>
+                                    </div>
+                                {% when 'follow'%}
+                                    <div class="mr-2">
+                                        <a class="btn btn-sm btn-with-count" href="https://github.com/{{ gh_user }}" role="button">
+                                            {% octicon person height:16 %}
+                                            <span>Follow</span>
+                                        </a>
+                                        <a class="social-count mr-2" href="https://github.com/{{ gh_user }}" data-gh-user="{{ gh_user }}" data-gh="followers">0</a>
+                                    </div>
+                              {% endcase %}
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                  </div>
+                </div>
+            </div>
+                {% endif %}
+
+                {{ post_body }}
+                </div>
+            </div>
         </div>
     </div>
-    </div>
-</div>
 </div>
 
 {% include footer.html %}

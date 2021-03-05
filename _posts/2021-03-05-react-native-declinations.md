@@ -7,7 +7,10 @@ date: "2021-03-05"
 tags:
   - React Native
   - React
+  - TypeScript
 author: senorihl
+gh-repo: senorihl/AppDeclination
+gh-badge: [fork, follow]
 ---
 
 For some reasons, your React Native project might be used for multiple applications, each one having its own logic such as authentication or visual identity.
