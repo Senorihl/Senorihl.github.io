@@ -1,14 +1,36 @@
 # https://themeparks.appspot.com/?utm_source=gh-page&utm_medium=affiliate&utm_term=&utm_content=definition-link&utm_campaign=website
--
-  name: Themeparks
+- name: react-native-at-internet
+  summary: Implementation of ATInternet Android & iOS packages for React Native
+  status: archived
+  description: |
+    Implementation of ATInternet Android & iOS packages for React Native
+  technologies:
+    - React Native (Swift & Kotlin)
+    - AT Internet
+  links:
+    - name: GitHub project
+      url: https://github.com/lemonde/react-native-at-internet
+      description: Source code
+- name: phalcon-abtest
+  summary: A library for AB Testing and counting results
+  status: archived
+  description: |
+    A library for AB Testing and counting results
+  technologies:
+    - Phalcon
+    - Redis
+  links:
+    - name: GitHub project
+      url: https://github.com/lemonde/phalcon-abtest
+      description: Source code
+- name: Themeparks
   summary: Multiple themeparks wait time
   status: archived
   description: |
     A web interface for [cubehouse's themeparks](https://github.com/cubehouse/themeparks).
   technologies:
     - NodeJS
--
-  name: Yopa
+- name: Yopa
   summary: Analytic solution
   status: archived
   description: |
@@ -21,15 +43,10 @@
     - PostgreSQL
     - Symfony 4
   links:
-    - name: Home Page
-      url: https://yopa-analytic.github.io
-      description: Documentation , Q&A
-    -
-      name: Github Organization
+    - name: Github Organization
       url: https://github.com/yopa-analytic
       description: Source code
--
-  name: Discard
+- name: Discard
   summary: Discord bot linked with Blizzard's API
   status: in progress
   description: A single binary that runs a bot on a discord guild, with command registerer and rich embed
@@ -37,23 +54,14 @@
     - Typescript
     - Mocha, Chai, Sinon
     - Test driven development
-  links:
-    -
-      name: discard
-      url: https://github.com/Senorihl/discard
-    -
-      name: node-blizzard-caller
-      url: https://www.npmjs.com/package/node-blizzard-caller
--
-  name: Ubuntu server
+- name: Ubuntu server
   summary: DevOps
   description: Private server for personal hosting & testing. Installation of GitLab, nginx, PHP
   technologies:
     - Ubuntu 16.04
     - nginx
     - ufw
--
-  name: Cofee
+- name: Cofee
   summary: RSS/Atom aggregator
   status: abandonned
   description: |
