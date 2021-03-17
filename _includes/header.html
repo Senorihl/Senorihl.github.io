@@ -33,10 +33,6 @@
     <meta property="og:description" content="{{ meta_description }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="{{ "/assets/styles.css" | relative_url }}" rel="stylesheet" type="text/css">
-    <script src="https://unpkg.com/whatwg-fetch@3.6.2/dist/fetch.umd.js"></script>
-    <script src="https://unpkg.com/url-search-params-polyfill@8.1.0/index.js"></script>
-    <script async src="{{ "/assets/gh-populator.js" | relative_url }}"></script>
-    <script data-ad-client="ca-pub-5369839741222261" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     {% if site.google_tracking_id %}{% include google_analytics.html %}{% endif %} 
   </head>
   <body class="bg-white min-height-full" {% if site.style == 'dark' %}style="background-color: #2f363d !important"{% endif %}>
