@@ -163,8 +163,11 @@ tail -f /app/logs/crontab.log
 
 Now build then start, you should have this output : 
 
-<img class="width-fit" alt="cron container execution" src="{{ "/img/docker-compose-crontab-demo.gif" | absolute_url }}" />
-
+<video controls class="width-fit">
+    <source src="{{ "/img/docker-compose-crontab-demo.webm" | absolute_url }}" type="video/webm">
+    <source src="{{ "/img/docker-compose-crontab-demo.mp4" | absolute_url }}" type="video/mp4">
+    Sorry, your browser doesn't support embedded videos.
+</video>
 
 [step 1]: https://github.com/Senorihl/docker-compose-cronjob/releases/tag/v1.1 
 [step 2]: https://github.com/Senorihl/docker-compose-cronjob/releases/tag/v2.0
