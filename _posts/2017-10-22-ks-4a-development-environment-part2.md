@@ -154,8 +154,6 @@ phpinfo();
 
 And now test your config and file by accessing `http://server_domain_or_IP/info.php` from your favorite browser.
 
-<figure class="image">
-    <img src="/img/phpinfo.png">
-</figure>
+<img class="width-fit" src="/img/phpinfo.png">
 
 For security reasons you can remove the `/var/www/html/info.php` file.
