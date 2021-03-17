@@ -91,7 +91,5 @@ Keep yourself updated : `sudo apt-get update` and `sudo apt-get upgrade` *(you s
 		Nginx HTTP (v6)            ALLOW       Anywhere (v6)
 
 5. Access your web server with your favorite browser : [http://your-instance/](http://your-instance/), which should render : 
-
-    <figure class="image">
-        <img src="/img/nginx.png">
-    </figure
+   
+   <img class="width-fit" src="/img/nginx.png">
