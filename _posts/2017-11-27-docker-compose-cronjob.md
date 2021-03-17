@@ -163,9 +163,8 @@ tail -f /app/logs/crontab.log
 
 Now build then start, you should have this output : 
 
-<figure class="image">
-    <img alt="cron container execution" src="{{ "/img/docker-compose-crontab-demo.gif" | absolute_url }}" />
-</figure>
+<img class="width-fit" alt="cron container execution" src="{{ "/img/docker-compose-crontab-demo.gif" | absolute_url }}" />
+
 
 [step 1]: https://github.com/Senorihl/docker-compose-cronjob/releases/tag/v1.1 
 [step 2]: https://github.com/Senorihl/docker-compose-cronjob/releases/tag/v2.0
