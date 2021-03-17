@@ -265,6 +265,6 @@ app.on("activate", () => {
 You can clone or fork [this repository](https://github.com/senorihl/demo-electron-typescript-react-typeorm)
 if you want to start your own project.
 
-![electron-typescript-react-typeorm-demo.gif](/img/electron-typescript-react-typeorm-demo.gif)
+<img class="width-fit" src="{{ "/img/electron-typescript-react-typeorm-demo.gif" | absolute_url }}" />
 
 Et voilà! 🍒
