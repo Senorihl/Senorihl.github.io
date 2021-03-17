@@ -23,7 +23,7 @@ But at least I'm proud to show you how amazing these pages I've worked on are aw
 
 Thanks to all the teams ! 🎉
 
-![municipales-logo]({{site.baseurl}}/img/municipales-logo.png)
+<img class="width-fit" src="{{ "/img/municipales-logo.png" | absolute_url }}" />
 
 
 
